@@ -15,6 +15,8 @@ Rails.configuration.to_prepare do
     # store.subscribe(InvoiceReadModel.new, to: [InvoicePrinted])
     # store.subscribe(lambda { |event| SendOrderConfirmation.new.call(event) }, to: [OrderSubmitted])
     # store.subscribe_to_all_events(lambda { |event| Rails.logger.info(event.event_type) })
+    store.subscribe(Books::Events::Handlers::OnBorrow.new, to: [Books::Events::Borrowed])
+    store.subscribe(Books::Events::Handlers::OnReturn.new, to: [Books::Events::Returned])
 
     store.subscribe_to_all_events(RailsEventStore::LinkByEventType.new)
     store.subscribe_to_all_events(RailsEventStore::LinkByCorrelationId.new)
@@ -22,8 +24,11 @@ Rails.configuration.to_prepare do
   end
 
   # Register command handlers below
-  # Rails.configuration.command_bus.tap do |bus|
-  #   bus.register(PrintInvoice, Invoicing::OnPrint.new)
-  #   bus.register(SubmitOrder, ->(cmd) { Ordering::OnSubmitOrder.new.call(cmd) })
-  # end
+  Rails.configuration.command_bus.tap do |bus|
+    bus.register(Books::Commands::Borrow, Books::Commands::Handlers::OnBorrow.new)
+    bus.register(Books::Commands::Return, Books::Commands::Handlers::OnReturn.new)
+
+    # bus.register(PrintInvoice, Invoicing::OnPrint.new)
+    # bus.register(SubmitOrder, ->(cmd) { Ordering::OnSubmitOrder.new.call(cmd) })
+  end
 end

@@ -71,3 +71,5 @@ group :test do
   gem "webdrivers"
 end
 gem "rails_event_store", "~> 2.9.1"
+gem 'pry'
+gem 'dry-struct'

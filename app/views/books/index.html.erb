@@ -1,0 +1,23 @@
+<h1>Books</h1>
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.id %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.status %></td>
+      <td>
+        <% if book.user_id %>
+          <%= render 'return_form', book: book %>
+        <% else %>
+          <%= render 'borrow_form', book: book %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<table>

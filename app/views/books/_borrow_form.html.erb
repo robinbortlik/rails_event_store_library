@@ -1,0 +1,9 @@
+
+<div class="container">
+  <%= form_for book, as: :book, url: borrow_book_path(book), method: :put do |f| %>
+    <div class="row">
+      <div class="column"><%= f.select :user_id, @users.map{|u| [u.name, u.id]} %></div>
+      <div class="column"><%= f.submit "Borrow", class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+</div>

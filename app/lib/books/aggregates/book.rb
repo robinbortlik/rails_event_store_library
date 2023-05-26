@@ -2,6 +2,7 @@ module Books
   module Aggregates
     class Book
      include AggregateRoot
+      attr_reader :id, :status
 
       BookAlreadyBorrowed = Class.new(StandardError)
       BookAlreadyReturned = Class.new(StandardError)

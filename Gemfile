@@ -69,6 +69,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails'
+  gem "ruby_event_store-rspec"
 end
 gem "rails_event_store", "~> 2.9.1"
 gem 'pry'

@@ -71,6 +71,8 @@ group :test do
   gem "webdrivers"
   gem 'rspec-rails'
   gem "ruby_event_store-rspec"
+  gem 'rails-controller-testing'
+  gem 'database_cleaner-active_record'
 end
 gem "rails_event_store", "~> 2.9.1"
 gem 'pry'

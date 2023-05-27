@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Books::Models::Book.all
-    @users = Users::Models::User.all
+    @books = Books::Models::Book.all.order(:id)
+    @users = Users::Models::User.all.order(:id)
   end
 
   def return

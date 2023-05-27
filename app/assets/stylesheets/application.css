@@ -17,3 +17,9 @@
 body {
   margin: 50px 100px;
 }
+
+table form,
+table input,
+table select {
+  margin: 0 !important;
+}

@@ -17,6 +17,14 @@ This is experimental project built just for education purposes.
 
 Application implements basic "Library" functions to keep evidence of borrowed and returned books.
 
+## Demo app
+App is available on [https://rails-event-store-library.herokuapp.com/](https://rails-event-store-library.herokuapp.com/)
+
+## Screenshots
+<img width="1291" alt="Screenshot 2023-05-28 at 21 44 08" src="https://github.com/robinbortlik/rails_event_store_library/assets/228502/e870b9f0-1936-4099-802e-3045611a968f">
+
+<img width="1254" alt="Screenshot 2023-05-28 at 21 44 15" src="https://github.com/robinbortlik/rails_event_store_library/assets/228502/ad5dce00-a95f-41be-8aff-849866a08d20">
+
 ## Architecture
 
 All object state changes are handled as events with help of Rails Event Store library
